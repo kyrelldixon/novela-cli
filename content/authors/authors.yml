@@ -1,0 +1,18 @@
+- name: Kyrell Dixon
+  bio: |
+    Full-stack developer. Udemy instructor. Consultant. Mentor. Currently accepting client work and students.
+  avatar: ./avatars/kyrell-dixon.jpeg
+  social:
+    - url: https://twitter.com/kyrelldixon
+    - url: https://instagram.com/kyrell.dixon
+    - url: https://github.com/kyrelldixon
+  featured: true
+- name: Sam Smith
+  bio: |
+    Famous musician who is doing big things right now.
+  avatar: ./avatars/sam-smith.jpeg
+  social:
+    - url: https://twitter.com/samsmith
+    - url: https://instagram.com/samsmith
+    - url: https://github.com/samsmith
+  featured: false
