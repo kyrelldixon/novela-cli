@@ -1,7 +1,63 @@
 {
-  "name": "create-novela-post-cli",
+  "name": "create-novela-post",
+  "description": "Create local Novela post boilerplate",
   "version": "0.0.1",
-  "main": "index.js",
   "author": "Kyrell Dixon <kyrell@kyrelldixon.com>",
-  "license": "MIT"
+  "bin": {
+    "create-novela-post": "./bin/run"
+  },
+  "bugs": "https://github.com/kyrelldixon/create-novela-post/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "@types/chai": "^4",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "chai": "^4",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-oclif-typescript": "^0.1",
+    "globby": "^10",
+    "mocha": "^5",
+    "nyc": "^14",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/kyrelldixon/create-novela-post",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "create-novela-post",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "kyrelldixon/create-novela-post",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
 }
