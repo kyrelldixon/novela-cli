@@ -4,26 +4,19 @@ import {fetchAuthors} from '../utils'
 export default class Create extends Command {
   static description = 'create a new post'
 
-  static examples = [
-    `$ create-novela-post create
-Kyrell Dixon
-Sam Smith
-`,
-  ]
-
   static flags = {
     help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
+    filepath: flags.string({
+      char: 'f',
+      description: 'filepath for authors YAML file',
+      default: `${process.cwd()}/content/authors/authors.yml`,
+    }),
   }
 
-  static args = [{name: 'file'}]
-
   async run() {
-    const path = './content/authors/authors.yml'
-    const authors = fetchAuthors(path)
+    const {flags} = this.parse(Create)
+
+    const authors = fetchAuthors(flags.filepath)
     authors.forEach(author => {
       this.log(author.name)
     })
