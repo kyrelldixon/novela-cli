@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import * as fs from 'fs'
+import {fetchAuthors} from '../utils'
 
 export default class Create extends Command {
   static description = 'create a new post'
@@ -22,7 +22,10 @@ Sam Smith
   static args = [{name: 'file'}]
 
   async run() {
-    const file = fs.readFileSync('./content/authors/authors.yml', 'utf8')
-    this.log(file)
+    const path = './content/authors/authors.yml'
+    const authors = fetchAuthors(path)
+    authors.forEach(author => {
+      this.log(author.name)
+    })
   }
 }
