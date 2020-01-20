@@ -1,6 +1,7 @@
+import * as inquirer from 'inquirer'
 import {Command, flags} from '@oclif/command'
 import {fetchAuthors} from '../utils'
-import * as inquirer from 'inquirer'
+import {makePostQuestions} from '../lib/novela'
 
 export default class Create extends Command {
   static description = 'create a new post'
@@ -17,32 +18,7 @@ export default class Create extends Command {
   async run() {
     const {flags} = this.parse(Create)
     const authors = fetchAuthors(flags.filepath)
-
-    const questions: any = [
-      {
-        name: 'title',
-        message: 'Title',
-        type: 'input',
-      },
-      {
-        name: 'author',
-        message: 'Select an author',
-        type: 'list',
-        choices: authors,
-      },
-      {
-        name: 'date',
-        message: 'Date (YYYY-MM-DD)',
-      },
-      {
-        name: 'excerpt',
-        message: 'Excerpt (140 character limit)',
-      },
-      {
-        name: 'hero',
-        message: 'Hero Image',
-      },
-    ]
+    const questions = makePostQuestions(authors)
 
     const responses: any = await inquirer.prompt(questions)
 
