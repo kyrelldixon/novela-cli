@@ -1,18 +1,6 @@
 import * as fs from 'fs'
 import * as yaml from 'js-yaml'
-
-interface Social {
-  url: string;
-}
-
-interface Author {
-  name: string;
-  bio: string;
-  avatar: string;
-  featured?: boolean;
-  slug?: string;
-  social?: Social[];
-}
+import {Author} from '../types'
 
 export const fetchAuthors = (path: string) => {
   try {
