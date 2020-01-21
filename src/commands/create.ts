@@ -21,7 +21,9 @@ export default class Create extends Command {
     const authors = fetchAuthors(flags.filepath)
     const questions = makePostQuestions(authors)
 
+    const contentPath = `${process.cwd()}/content`
     const post: Post = await inquirer.prompt(questions)
-    createPost(post)
+    // TODO: Give more feedback to user and handle errors
+    createPost(contentPath, post)
   }
 }
