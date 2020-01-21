@@ -1,5 +1,9 @@
 import {Author} from '../types'
 
+const excerptValidator = async (input: string) => {
+  return input.length < 140 || 'The excerpt should be less than 140 characters'
+}
+
 export const makePostQuestions = (authors: Author[]) => [
   {
     name: 'title',
@@ -19,6 +23,7 @@ export const makePostQuestions = (authors: Author[]) => [
   {
     name: 'excerpt',
     message: 'Excerpt (140 character limit)',
+    validate: excerptValidator,
   },
   {
     name: 'hero',
