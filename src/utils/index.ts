@@ -25,20 +25,49 @@ const toKebabCase = (str: string): string => {
   .join('-')
 }
 
-const createPostDirectory = (post: Post) => {
+const createPostPath = (contentPath: string, post: Post) => {
   const formattedTitle = toKebabCase(post.title)
   const directoryName = `${post.date}-${formattedTitle}`
-  // eslint-disable-next-line no-console
-  console.log(`creating directory ${directoryName}`)
-  // fs.mkdirSync()
+  const postPath = `${contentPath}/posts/${directoryName}`
+  return postPath
 }
 
-const createPostMdxFile = (post: Post) => {
-  // eslint-disable-next-line no-console
-  console.log(`creating post mdx file for ${post.title}`)
+const createPostDirectories = (postPath: string) => {
+  const imagePath = `${postPath}/images`
+  fs.mkdirSync(postPath)
+  fs.mkdirSync(imagePath)
 }
 
-export const createPost = (post: Post) => {
-  createPostDirectory(post)
-  createPostMdxFile(post)
+const createPostFrontMatter = (post: Post) => {
+  const frontMatter = `---
+title: ${post.title}
+author: ${post.author}
+date: ${post.date}
+hero: ${post.hero}
+excerpt: ${post.excerpt}
+---
+`
+
+  return frontMatter
+}
+
+const createPostMdxFile = (postPath: string, frontMatter: string) => {
+  const fileName = 'index.mdx'
+  const path = `${postPath}/${fileName}`
+  fs.writeFileSync(path, frontMatter)
+}
+
+const createPostImage = (postPath: string) => {
+  const fileName = 'hero.jpg'
+  const path = `${postPath}/images/${fileName}`
+  // TODO: get real image from unsplash api
+  fs.writeFileSync(path, '')
+}
+
+export const createPost = (contentPath: string, post: Post) => {
+  const postPath = createPostPath(contentPath, post)
+  const frontMatter = createPostFrontMatter(post)
+  createPostDirectories(postPath)
+  createPostImage(postPath)
+  createPostMdxFile(postPath, frontMatter)
 }
