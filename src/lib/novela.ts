@@ -16,6 +16,9 @@ const dateValidator = async (input: string) => {
   return (d.toISOString().slice(0, 10) === input) || errorMessage
 }
 
+const getCurrentDate = () =>
+  new Date().toISOString().slice(0, 10)
+
 export const makePostQuestions = (authors: Author[]) => [
   {
     name: 'title',
@@ -32,6 +35,7 @@ export const makePostQuestions = (authors: Author[]) => [
     name: 'date',
     message: 'Date (YYYY-MM-DD)',
     validate: dateValidator,
+    default: getCurrentDate(),
   },
   {
     name: 'excerpt',
