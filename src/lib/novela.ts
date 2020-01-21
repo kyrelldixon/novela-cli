@@ -16,6 +16,10 @@ const dateValidator = async (input: string) => {
   return (d.toISOString().slice(0, 10) === input) || errorMessage
 }
 
+const titleValidator = async (input: string) => {
+  return input || 'The title is required'
+}
+
 const getCurrentDate = () =>
   new Date().toISOString().slice(0, 10)
 
@@ -24,6 +28,7 @@ export const makePostQuestions = (authors: Author[]) => [
     name: 'title',
     message: 'Title',
     type: 'input',
+    validate: titleValidator,
   },
   {
     name: 'author',
