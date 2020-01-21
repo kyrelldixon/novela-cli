@@ -17,7 +17,7 @@ const dateValidator = async (input: string) => {
 }
 
 const titleValidator = async (input: string) => {
-  return input || 'The title is required'
+  return Boolean(input) || 'The title is required'
 }
 
 const getCurrentDate = () =>
