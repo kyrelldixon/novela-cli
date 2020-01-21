@@ -50,5 +50,6 @@ export const makePostQuestions = (authors: Author[]) => [
   {
     name: 'hero',
     message: 'Hero Image',
+    default: './images/hero.jpg',
   },
 ]
