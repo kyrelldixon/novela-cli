@@ -10,3 +10,14 @@ export interface Author {
   slug?: string;
   social?: Social[];
 }
+
+export interface Post {
+  title: string;
+  slug?: string;
+  author: string;
+  date: string;
+  hero: string;
+  excerpt: string;
+  subscription?: boolean;
+  secret?: boolean;
+}
