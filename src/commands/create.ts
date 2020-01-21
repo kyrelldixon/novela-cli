@@ -1,7 +1,8 @@
 import * as inquirer from 'inquirer'
 import {Command, flags} from '@oclif/command'
-import {fetchAuthors} from '../utils'
+import {fetchAuthors, createPost} from '../utils'
 import {makePostQuestions} from '../lib/novela'
+import {Post} from '../types'
 
 export default class Create extends Command {
   static description = 'create a new post'
@@ -20,12 +21,7 @@ export default class Create extends Command {
     const authors = fetchAuthors(flags.filepath)
     const questions = makePostQuestions(authors)
 
-    const responses: any = await inquirer.prompt(questions)
-
-    this.log(responses.title)
-    this.log(responses.author)
-    this.log(responses.date)
-    this.log(responses.excerpt)
-    this.log(responses.hero)
+    const post: Post = await inquirer.prompt(questions)
+    createPost(post)
   }
 }
