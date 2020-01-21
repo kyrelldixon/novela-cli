@@ -1,7 +1,8 @@
 import {Author} from '../types'
 
 const excerptValidator = async (input: string) => {
-  return input.length < 140 || 'The excerpt should be less than 140 characters'
+  if (!input) return 'The excerpt is required'
+  return (input.length < 140) || 'The excerpt should be less than 140 characters'
 }
 
 // from https://stackoverflow.com/questions/18758772/how-do-i-validate-a-date-in-this-format-yyyy-mm-dd-using-jquery
