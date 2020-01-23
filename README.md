@@ -15,49 +15,47 @@ Create local Novela post boilerplate
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g create-novela-post-cli
-$ create-novela-post-cli COMMAND
+$ npm install -g novela-cli
+$ novela-cli COMMAND
 running command...
-$ create-novela-post-cli (-v|--version|version)
-create-novela-post-cli/0.0.1 darwin-x64 node-v12.2.0
-$ create-novela-post-cli --help [COMMAND]
+$ novela-cli (-v|--version|version)
+novela-cli/0.0.1 darwin-x64 node-v12.2.0
+$ novela-cli --help [COMMAND]
 USAGE
-  $ create-novela-post-cli COMMAND
+  $ novela-cli COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`create-novela-post-cli hello [FILE]`](#create-novela-post-cli-hello-file)
-* [`create-novela-post-cli help [COMMAND]`](#create-novela-post-cli-help-command)
+* [`novela-cli create`](#novela-cli-create)
+* [`novela-cli help [COMMAND]`](#novela-cli-help-command)
+* [`novela-cli init [FILE]`](#novela-cli-init-file)
 
-## `create-novela-post-cli hello [FILE]`
+## `novela-cli create`
 
-describe the command here
+create a new post
 
 ```
 USAGE
-  $ create-novela-post-cli hello [FILE]
+  $ novela-cli create
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -f, --filepath=filepath  [default: /Users/Ky/Dev/sites/studentdevcoach/code/novela-cli/content/authors/authors.yml]
+                           filepath for authors YAML file
 
-EXAMPLE
-  $ create-novela-post-cli hello
-  hello world from ./src/hello.ts!
+  -h, --help               show CLI help
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/kyrelldixon/create-novela-post-cli/blob/v0.0.1/src/commands/hello.ts)_
+_See code: [src/commands/create.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.1/src/commands/create.ts)_
 
-## `create-novela-post-cli help [COMMAND]`
+## `novela-cli help [COMMAND]`
 
-display help for create-novela-post-cli
+display help for novela-cli
 
 ```
 USAGE
-  $ create-novela-post-cli help [COMMAND]
+  $ novela-cli help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for
@@ -67,4 +65,20 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
+
+## `novela-cli init [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ novela-cli init [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/init.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.1/src/commands/init.ts)_
 <!-- commandsstop -->
