@@ -8,11 +8,13 @@ const excerptValidator = async (input: string) => {
 // from https://stackoverflow.com/questions/18758772/how-do-i-validate-a-date-in-this-format-yyyy-mm-dd-using-jquery
 const dateValidator = async (input: string) => {
   const errorMessage = 'Date should be a real date formatted as YYYY-MM-DD'
+  const invalidFormatErrorMessage = 'Date should be formatted as YYYY-MM-DD'
+  const invalidDateErrorMessage = 'Date is invalid'
   const regEx = /^\d{4}-\d{2}-\d{2}$/
-  if (!input.match(regEx)) return errorMessage  // Invalid format
+  if (!input.match(regEx)) return invalidFormatErrorMessage
   const d = new Date(input)
   const dNum = d.getTime()
-  if (!dNum && dNum !== 0) return errorMessage // NaN value, Invalid date
+  if (!dNum && dNum !== 0) return invalidDateErrorMessage
   return (d.toISOString().slice(0, 10) === input) || errorMessage
 }
 
