@@ -4,7 +4,7 @@ import * as inquirer from 'inquirer'
 import {PathPrompt} from 'inquirer-path'
 import {Command, flags} from '@oclif/command'
 import {makeInitQuestions} from '../lib/novela'
-import {NovelaConfig} from '../types'
+import {NovelaConfig} from '../@types'
 
 inquirer.registerPrompt('path', PathPrompt)
 

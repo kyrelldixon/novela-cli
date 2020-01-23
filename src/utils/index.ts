@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 import * as yaml from 'js-yaml'
-import {Author, Post} from '../types'
+import {Author, Post} from '../@types'
 import {downloadUnsplashImage} from '../api'
 
 export const getAuthorsFromYaml = (path: string) => {

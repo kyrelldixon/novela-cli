@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs'
-import {Author} from '../types'
+import {Author} from '../@types'
 import {getCurrentDate} from '../utils'
 
 const excerptValidator = async (input: string) => {

@@ -4,7 +4,7 @@ import * as path from 'path'
 import {Command, flags} from '@oclif/command'
 import {getAuthorsFromYaml, createPost} from '../utils'
 import {makePostQuestions} from '../lib/novela'
-import {Post} from '../types'
+import {Post} from '../@types'
 
 export default class Create extends Command {
   static description = 'create a new post'
