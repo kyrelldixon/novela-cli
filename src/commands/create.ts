@@ -28,7 +28,7 @@ export default class Create extends Command {
     const questions = makePostQuestions(authors)
 
     const post: Post = await inquirer.prompt(questions)
-    // TODO: Give more feedback to user and handle errors
     await createPost(config.contentPosts, post)
+    this.log('Succesfully created post')
   }
 }
