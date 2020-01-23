@@ -5,11 +5,12 @@ import {downloadUnsplashImage} from '../api'
 
 export const getAuthorsFromYaml = (path: string) => {
   try {
-    if (!fs.existsSync(path)) {
-      throw new Error(`No file found at ${path}`)
+    const authorsYamlPath = `${path}/authors.yml`
+    if (!fs.existsSync(authorsYamlPath)) {
+      throw new Error(`No file found at ${authorsYamlPath}`)
     }
 
-    const fileContents = fs.readFileSync(path, 'utf8')
+    const fileContents = fs.readFileSync(authorsYamlPath, 'utf8')
     const authors: Author[] = yaml.safeLoad(fileContents)
 
     return authors
@@ -32,7 +33,7 @@ export const getCurrentDate = () =>
 const createPostPath = (contentPath: string, post: Post) => {
   const formattedTitle = toKebabCase(post.title)
   const directoryName = `${post.date}-${formattedTitle}`
-  const postPath = `${contentPath}/posts/${directoryName}`
+  const postPath = `${contentPath}/${directoryName}`
   return postPath
 }
 

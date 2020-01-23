@@ -1,4 +1,6 @@
 import * as inquirer from 'inquirer'
+import * as fs from 'fs'
+import * as path from 'path'
 import {Command, flags} from '@oclif/command'
 import {getAuthorsFromYaml, createPost} from '../utils'
 import {makePostQuestions} from '../lib/novela'
@@ -9,21 +11,25 @@ export default class Create extends Command {
 
   static flags = {
     help: flags.help({char: 'h'}),
-    filepath: flags.string({
-      char: 'f',
-      description: 'filepath for authors YAML file',
-      default: `${process.cwd()}/content/authors/authors.yml`,
-    }),
   }
 
   async run() {
-    const {flags} = this.parse(Create)
-    const authors = getAuthorsFromYaml(flags.filepath)
+    const configPath = path.join(this.config.configDir, 'config.json')
+
+    if (!fs.existsSync(configPath)) {
+      this.log('Content folder not found. Did you run novela-cli init?')
+      return
+    }
+
+    const configString = fs.readFileSync(configPath, 'utf-8')
+    const config = JSON.parse(configString)
+    this.log(JSON.stringify(config))
+
+    const authors = getAuthorsFromYaml(config.contentAuthors)
     const questions = makePostQuestions(authors)
 
-    const contentPath = `${process.cwd()}/content`
     const post: Post = await inquirer.prompt(questions)
     // TODO: Give more feedback to user and handle errors
-    await createPost(contentPath, post)
+    await createPost(config.contentPosts, post)
   }
 }
