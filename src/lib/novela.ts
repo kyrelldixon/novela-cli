@@ -1,4 +1,5 @@
 import {Author} from '../types'
+import {getCurrentDate} from '../utils'
 
 const excerptValidator = async (input: string) => {
   if (!input) return 'The excerpt is required'
@@ -21,9 +22,6 @@ const dateValidator = async (input: string) => {
 const titleValidator = async (input: string) => {
   return Boolean(input) || 'The title is required'
 }
-
-const getCurrentDate = () =>
-  new Date().toISOString().slice(0, 10)
 
 export const makePostQuestions = (authors: Author[]) => [
   {

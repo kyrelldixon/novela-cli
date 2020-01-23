@@ -26,6 +26,9 @@ const toKebabCase = (str: string): string => {
   .join('-')
 }
 
+export const getCurrentDate = () =>
+  new Date().toISOString().slice(0, 10)
+
 const createPostPath = (contentPath: string, post: Post) => {
   const formattedTitle = toKebabCase(post.title)
   const directoryName = `${post.date}-${formattedTitle}`
