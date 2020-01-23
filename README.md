@@ -28,12 +28,25 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [novela-cli](#novela-cli)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [`novela-cli create`](#novela-cli-create)
-  - [`novela-cli help [COMMAND]`](#novela-cli-help-command)
-  - [`novela-cli config`](#novela-cli-config)
+* [`novela-cli config`](#novela-cli-config)
+* [`novela-cli create`](#novela-cli-create)
+* [`novela-cli help [COMMAND]`](#novela-cli-help-command)
+
+## `novela-cli config`
+
+update configuration for authors and posts
+
+```
+USAGE
+  $ novela-cli config
+
+OPTIONS
+  -a, --authors=authors  authors directory path
+  -h, --help             show CLI help
+  -p, --posts=posts      post directory path
+```
+
+_See code: [src/commands/config.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.1/src/commands/config.ts)_
 
 ## `novela-cli create`
 
@@ -44,10 +57,7 @@ USAGE
   $ novela-cli create
 
 OPTIONS
-  -f, --filepath=filepath  [default: /Users/Ky/Dev/sites/studentdevcoach/code/novela-cli/content/authors/authors.yml]
-                           filepath for authors YAML file
-
-  -h, --help               show CLI help
+  -h, --help  show CLI help
 ```
 
 _See code: [src/commands/create.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.1/src/commands/create.ts)_
@@ -68,20 +78,4 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
-
-## `novela-cli config`
-
-update configuration for authors and posts
-
-```
-USAGE
-  $ novela-cli config
-
-OPTIONS
--a, --authors authors directory path
--h, --help    show CLI help
--p, --posts   post directory path
-```
-
-_See code: [src/commands/config.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.1/src/commands/config.ts)_
 <!-- commandsstop -->
