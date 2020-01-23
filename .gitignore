@@ -34,6 +34,9 @@
 # public
 # rollup.js default build output
 # vuepress build output
+### Novela ###
+content
+
 ### Node ###
 *-debug.log
 *-error.log
