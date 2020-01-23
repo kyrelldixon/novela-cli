@@ -4,9 +4,9 @@ novela-cli
 Create local Novela post boilerplate
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-<!-- [![Version](https://img.shields.io/npm/v/novela-cli.svg)](https://npmjs.org/package/novela-cli)
-[![Downloads/week](https://img.shields.io/npm/dw/novela-cli.svg)](https://npmjs.org/package/novela-cli)
-[![License](https://img.shields.io/npm/l/novela-cli.svg)](https://github.com/kyrelldixon/novela-cli/blob/master/package.json) -->
+[![Version](https://img.shields.io/npm/v/@kyrelldixon/novela-cli.svg)](https://npmjs.org/package/@kyrelldixon/novela-cli)
+<!-- [![Downloads/week](https://img.shields.io/npm/dw/@kyrelldixon/novela-cli.svg)](https://npmjs.org/package/@kyrelldixon/novela-cli) -->
+[![License](https://img.shields.io/npm/l/@kyrelldixon/novela-cli.svg)](https://github.com/kyrelldixon/novela-cli/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -28,9 +28,12 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`novela-cli config`](#novela-cli-config)
-* [`novela-cli create`](#novela-cli-create)
-* [`novela-cli help [COMMAND]`](#novela-cli-help-command)
+- [novela-cli](#novela-cli)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`novela-cli config`](#novela-cli-config)
+  - [`novela-cli create`](#novela-cli-create)
+  - [`novela-cli help [COMMAND]`](#novela-cli-help-command)
 
 ## `novela-cli config`
 
