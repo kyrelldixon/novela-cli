@@ -51,6 +51,6 @@ export default class Init extends Command {
     userConfig = await inquirer.prompt(questions)
     const configDetails = JSON.stringify(userConfig, null, 2)
     fs.writeFileSync(configPath, configDetails)
-    this.log('Successfully created config file')
+    this.log('Successfully updated config file')
   }
 }
