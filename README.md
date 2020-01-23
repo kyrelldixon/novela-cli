@@ -19,7 +19,7 @@ $ npm install -g @kyrelldixon/novela-cli
 $ novela-cli COMMAND
 running command...
 $ novela-cli (-v|--version|version)
-@kyrelldixon/novela-cli/0.0.2 darwin-x64 node-v12.2.0
+@kyrelldixon/novela-cli/0.0.3 darwin-x64 node-v12.2.0
 $ novela-cli --help [COMMAND]
 USAGE
   $ novela-cli COMMAND
@@ -46,7 +46,7 @@ OPTIONS
   -p, --posts=posts      post directory path
 ```
 
-_See code: [src/commands/config.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.2/src/commands/config.ts)_
+_See code: [src/commands/config.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.3/src/commands/config.ts)_
 
 ## `novela-cli create`
 
@@ -60,7 +60,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/create.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.2/src/commands/create.ts)_
+_See code: [src/commands/create.ts](https://github.com/kyrelldixon/novela-cli/blob/v0.0.3/src/commands/create.ts)_
 
 ## `novela-cli help [COMMAND]`
 
