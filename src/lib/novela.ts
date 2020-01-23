@@ -62,15 +62,26 @@ export const makePostQuestions = (authors: Author[]) => [
   },
 ]
 
-export const makeInitQuestions = () => [
-  {
+export const makeInitQuestions = (userConfig: any) => {
+  const postQuestion: any = {
     name: 'contentPosts',
-    message: 'Folder where your Post data is located',
+    message: 'Where is your Post data is located?',
     type: 'input',
-  },
-  {
+    validate: pathExistsValidator,
+  }
+  const authorQuestion: any = {
     name: 'contentAuthors',
-    message: 'Folder your Author data is located',
+    message: 'Where is your Author data is located?',
     type: 'input',
-  },
-]
+    validate: pathExistsValidator,
+  }
+
+  if (userConfig.contentPosts) {
+    postQuestion.default = userConfig.contentPosts
+  }
+  if (userConfig.contentAuthors) {
+    authorQuestion.default = userConfig.contentAuthors
+  }
+
+  return [postQuestion, authorQuestion]
+}
