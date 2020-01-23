@@ -1,12 +1,13 @@
 import * as inquirer from 'inquirer'
 import * as fs from 'fs'
 import * as path from 'path'
-import {Command, flags} from '@oclif/command'
+import {flags} from '@oclif/command'
+import NovelaCommand from '../base'
 import {getAuthorsFromYaml, createPost} from '../utils'
 import {makePostQuestions} from '../lib/novela'
 import {Post} from '../@types'
 
-export default class Create extends Command {
+export default class Create extends NovelaCommand {
   static description = 'create a new post'
 
   static flags = {

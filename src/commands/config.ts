@@ -2,13 +2,14 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as inquirer from 'inquirer'
 import {PathPrompt} from 'inquirer-path'
-import {Command, flags} from '@oclif/command'
+import {flags} from '@oclif/command'
+import NovelaCommand from '../base'
 import {makeInitQuestions} from '../lib/novela'
 import {NovelaConfig} from '../@types'
 
 inquirer.registerPrompt('path', PathPrompt)
 
-export default class Config extends Command {
+export default class Config extends NovelaCommand {
   static description = 'update configuration for authors and posts'
 
   static flags = {
