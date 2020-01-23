@@ -1,12 +1,12 @@
 {
-  "name": "create-novela-post",
+  "name": "novela-cli",
   "description": "Create local Novela post boilerplate",
   "version": "0.0.1",
   "author": "Kyrell Dixon <kyrell@kyrelldixon.com>",
   "bin": {
-    "create-novela-post": "./bin/run"
+    "novela": "./bin/run"
   },
-  "bugs": "https://github.com/kyrelldixon/create-novela-post/issues",
+  "bugs": "https://github.com/kyrelldixon/novela-cli/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -43,7 +43,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/kyrelldixon/create-novela-post",
+  "homepage": "https://github.com/kyrelldixon/novela-cli",
   "keywords": [
     "oclif"
   ],
@@ -51,12 +51,12 @@
   "main": "index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "create-novela-post",
+    "bin": "novela-cli",
     "plugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "kyrelldixon/create-novela-post",
+  "repository": "kyrelldixon/novela-cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
