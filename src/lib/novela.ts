@@ -53,3 +53,16 @@ export const makePostQuestions = (authors: Author[]) => [
     default: './images/hero.jpg',
   },
 ]
+
+export const makeInitQuestions = () => [
+  {
+    name: 'contentPosts',
+    message: 'Folder where your Post data is located',
+    type: 'input',
+  },
+  {
+    name: 'contentAuthors',
+    message: 'Folder your Author data is located',
+    type: 'input',
+  },
+]
