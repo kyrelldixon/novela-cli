@@ -17,7 +17,7 @@ export default class Create extends Command {
     const configPath = path.join(this.config.configDir, 'config.json')
 
     if (!fs.existsSync(configPath)) {
-      this.log('Content folder not found. Did you run novela-cli init?')
+      this.log('Content folder not found. Did you run novela-cli config?')
       return
     }
 
