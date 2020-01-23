@@ -8,8 +8,8 @@ import {NovelaConfig} from '../types'
 
 inquirer.registerPrompt('path', PathPrompt)
 
-export default class Init extends Command {
-  static description = 'initialize the cli with post and author directories'
+export default class Config extends Command {
+  static description = 'update configuration for authors and posts'
 
   static flags = {
     help: flags.help({char: 'h'}),
@@ -24,7 +24,7 @@ export default class Init extends Command {
   }
 
   async run() {
-    const {flags} = this.parse(Init)
+    const {flags} = this.parse(Config)
     const configPath = path.join(this.config.configDir, 'config.json')
     let userConfig: NovelaConfig = {
       contentAuthors: null,
