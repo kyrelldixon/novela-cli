@@ -21,3 +21,8 @@ export interface Post {
   subscription?: boolean;
   secret?: boolean;
 }
+
+export interface NovelaConfig {
+  contentPosts: string | null;
+  contentAuthors: string | null;
+}
