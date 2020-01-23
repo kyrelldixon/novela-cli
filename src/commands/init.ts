@@ -1,6 +1,9 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import * as inquirer from 'inquirer'
 import {Command, flags} from '@oclif/command'
+import {makeInitQuestions} from '../lib/novela'
+import {NovelaConfig} from '../types'
 
 export default class Init extends Command {
   static description = 'initialize the cli with post and author directories'
@@ -20,13 +23,14 @@ export default class Init extends Command {
   async run() {
     const {flags} = this.parse(Init)
     const configPath = path.join(this.config.configDir, 'config.json')
-    let userConfig: any = {}
+    let userConfig: NovelaConfig = {
+      contentAuthors: null,
+      contentPosts: null,
+    }
 
     if (!fs.existsSync(configPath)) {
-      this.log('No config file found. Creating config.json')
+      this.log('No config file found')
       fs.mkdirSync(this.config.configDir)
-      fs.writeFileSync(configPath, '{}')
-      this.log('Created config file')
     } else if (fs.existsSync(configPath)) {
       userConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'))
     }
@@ -34,16 +38,16 @@ export default class Init extends Command {
     if (flags.posts && flags.authors) {
       userConfig.contentPosts = path.resolve(flags.posts)
       userConfig.contentAuthors = path.resolve(flags.authors)
-      this.log('Updated config authors and posts')
     } else if (flags.posts) {
       userConfig.contentPosts = path.resolve(flags.posts)
-      this.log('Updated config posts')
     } else if (flags.authors) {
       userConfig.contentAuthors = path.resolve(flags.authors)
-      this.log('Updated config authors')
     }
 
+    const questions = makeInitQuestions(userConfig)
+    userConfig = await inquirer.prompt(questions)
     const configDetails = JSON.stringify(userConfig, null, 2)
     fs.writeFileSync(configPath, configDetails)
+    this.log('Successfully created config file')
   }
 }
