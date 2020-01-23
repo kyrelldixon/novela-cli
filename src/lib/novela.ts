@@ -66,13 +66,13 @@ export const makeInitQuestions = (userConfig: any) => {
   const postQuestion: any = {
     name: 'contentPosts',
     message: 'Where is your Post data is located?',
-    type: 'input',
+    type: 'path',
     validate: pathExistsValidator,
   }
   const authorQuestion: any = {
     name: 'contentAuthors',
     message: 'Where is your Author data is located?',
-    type: 'input',
+    type: 'path',
     validate: pathExistsValidator,
   }
 

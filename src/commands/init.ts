@@ -1,9 +1,12 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import * as inquirer from 'inquirer'
+import {PathPrompt} from 'inquirer-path'
 import {Command, flags} from '@oclif/command'
 import {makeInitQuestions} from '../lib/novela'
 import {NovelaConfig} from '../types'
+
+inquirer.registerPrompt('path', PathPrompt)
 
 export default class Init extends Command {
   static description = 'initialize the cli with post and author directories'
