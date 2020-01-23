@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "author": "Kyrell Dixon <kyrell@kyrelldixon.com>",
   "bin": {
-    "novela": "./bin/run"
+    "novela-cli": "./bin/run"
   },
   "bugs": "https://github.com/kyrelldixon/novela-cli/issues",
   "dependencies": {
