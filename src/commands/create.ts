@@ -23,7 +23,6 @@ export default class Create extends Command {
 
     const configString = fs.readFileSync(configPath, 'utf-8')
     const config = JSON.parse(configString)
-    this.log(JSON.stringify(config))
 
     const authors = getAuthorsFromYaml(config.contentAuthors)
     const questions = makePostQuestions(authors)
