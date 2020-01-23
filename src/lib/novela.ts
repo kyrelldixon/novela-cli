@@ -1,3 +1,5 @@
+import * as path from 'path'
+import * as fs from 'fs'
 import {Author} from '../types'
 import {getCurrentDate} from '../utils'
 
@@ -21,6 +23,12 @@ const dateValidator = async (input: string) => {
 
 const titleValidator = async (input: string) => {
   return Boolean(input) || 'The title is required'
+}
+
+const pathExistsValidator = async (input: string) => {
+  if (!input) return 'Directory is required'
+  const absolutePath = path.resolve(input)
+  return fs.existsSync(absolutePath) || 'Directory does not exist'
 }
 
 export const makePostQuestions = (authors: Author[]) => [
