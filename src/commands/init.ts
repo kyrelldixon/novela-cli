@@ -28,7 +28,7 @@ export default class Init extends Command {
       contentPosts: null,
     }
 
-    if (!fs.existsSync(configPath)) {
+    if (!fs.existsSync(this.config.configDir)) {
       this.log('No config file found')
       fs.mkdirSync(this.config.configDir)
     } else if (fs.existsSync(configPath)) {
