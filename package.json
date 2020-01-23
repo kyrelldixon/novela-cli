@@ -1,5 +1,5 @@
 {
-  "name": "novela-cli",
+  "name": "@kyrelldixon/novela-cli",
   "description": "Create local Novela post boilerplate",
   "version": "0.0.1",
   "author": "Kyrell Dixon <kyrell@kyrelldixon.com>",
