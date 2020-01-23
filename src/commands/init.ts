@@ -3,7 +3,7 @@ import {Command, flags} from '@oclif/command'
 import {makeInitQuestions} from '../lib/novela'
 
 export default class Init extends Command {
-  static description = 'describe the command here'
+  static description = 'initialize the cli with post and author directories'
 
   static flags = {
     help: flags.help({char: 'h'}),
