@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import * as yaml from 'js-yaml'
 import {Author, Post} from '../types'
+import {downloadUnsplashImage} from '../api'
 
 export const fetchAuthors = (path: string) => {
   try {
@@ -57,17 +58,16 @@ const createPostMdxFile = (postPath: string, frontMatter: string) => {
   fs.writeFileSync(path, frontMatter)
 }
 
-const createPostImage = (postPath: string) => {
+const createPostImage = async (postPath: string) => {
   const fileName = 'hero.jpg'
   const path = `${postPath}/images/${fileName}`
-  // TODO: get real image from unsplash api
-  fs.writeFileSync(path, '')
+  await downloadUnsplashImage(path)
 }
 
-export const createPost = (contentPath: string, post: Post) => {
+export const createPost = async (contentPath: string, post: Post) => {
   const postPath = createPostPath(contentPath, post)
   const frontMatter = createPostFrontMatter(post)
   createPostDirectories(postPath)
-  createPostImage(postPath)
+  await createPostImage(postPath)
   createPostMdxFile(postPath, frontMatter)
 }

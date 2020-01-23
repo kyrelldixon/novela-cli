@@ -24,6 +24,6 @@ export default class Create extends Command {
     const contentPath = `${process.cwd()}/content`
     const post: Post = await inquirer.prompt(questions)
     // TODO: Give more feedback to user and handle errors
-    createPost(contentPath, post)
+    await createPost(contentPath, post)
   }
 }
