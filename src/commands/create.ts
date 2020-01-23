@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer'
 import {Command, flags} from '@oclif/command'
-import {fetchAuthors, createPost} from '../utils'
+import {getAuthorsFromYaml, createPost} from '../utils'
 import {makePostQuestions} from '../lib/novela'
 import {Post} from '../types'
 
@@ -18,7 +18,7 @@ export default class Create extends Command {
 
   async run() {
     const {flags} = this.parse(Create)
-    const authors = fetchAuthors(flags.filepath)
+    const authors = getAuthorsFromYaml(flags.filepath)
     const questions = makePostQuestions(authors)
 
     const contentPath = `${process.cwd()}/content`

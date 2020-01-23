@@ -3,7 +3,7 @@ import * as yaml from 'js-yaml'
 import {Author, Post} from '../types'
 import {downloadUnsplashImage} from '../api'
 
-export const fetchAuthors = (path: string) => {
+export const getAuthorsFromYaml = (path: string) => {
   try {
     if (!fs.existsSync(path)) {
       throw new Error(`No file found at ${path}`)
