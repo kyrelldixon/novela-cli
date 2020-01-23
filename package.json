@@ -13,7 +13,6 @@
     "@oclif/plugin-help": "^2",
     "axios": "^0.19.2",
     "inquirer": "^7.0.3",
-    "inquirer-directory": "^2.2.0",
     "js-yaml": "^3.13.1",
     "tslib": "^1"
   },
