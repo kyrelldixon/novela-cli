@@ -67,12 +67,14 @@ export const makeInitQuestions = (userConfig: any) => {
     name: 'contentPosts',
     message: 'Where is your Post data is located?',
     type: 'path',
+    default: process.cwd(),
     validate: pathExistsValidator,
   }
   const authorQuestion: any = {
     name: 'contentAuthors',
     message: 'Where is your Author data is located?',
     type: 'path',
+    default: process.cwd(),
     validate: pathExistsValidator,
   }
 

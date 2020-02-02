@@ -28,12 +28,9 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [novela-cli](#novela-cli)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [`novela-cli config`](#novela-cli-config)
-  - [`novela-cli create`](#novela-cli-create)
-  - [`novela-cli help [COMMAND]`](#novela-cli-help-command)
+* [`novela-cli config`](#novela-cli-config)
+* [`novela-cli create`](#novela-cli-create)
+* [`novela-cli help [COMMAND]`](#novela-cli-help-command)
 
 ## `novela-cli config`
 

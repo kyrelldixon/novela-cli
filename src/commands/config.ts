@@ -39,6 +39,15 @@ export default class Config extends NovelaCommand {
       userConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'))
     }
 
+    // Fix crash from non-existant path. Can occur if user sets config and
+    // moves directory
+    if (userConfig.contentAuthors && !fs.existsSync(userConfig.contentAuthors)) {
+      userConfig.contentAuthors = null
+    }
+    if (userConfig.contentPosts && !fs.existsSync(userConfig.contentPosts)) {
+      userConfig.contentPosts = null
+    }
+
     if (flags.posts && flags.authors) {
       userConfig.contentPosts = path.resolve(flags.posts)
       userConfig.contentAuthors = path.resolve(flags.authors)
