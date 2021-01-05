@@ -19,7 +19,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "inquirer": "^7.0.3",
     "inquirer-path": "^1.0.0-beta5",
     "js-yaml": "^3.13.1",
